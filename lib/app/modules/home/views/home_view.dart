@@ -41,13 +41,28 @@ class HomeView extends GetView<HomeController> {
                             );
                             // Get.put(product);
                           },
-                          child: ListTile(
-                            leading: ClipRRect(
-                              borderRadius: BorderRadius.circular(100),
-                              child: Image.network(product.imageLink ?? ''),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                color: Colors.cyan.shade50,
+                                borderRadius: BorderRadius.circular(20),
+                                shape: BoxShape.rectangle,
+                                border: Border.all(color: Colors.white30),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: ListTile(
+                                  leading: ClipRRect(
+                                    borderRadius: BorderRadius.circular(100),
+                                    child: Image.network(product.imageLink ?? ''),
+                                  ),
+                                  title: Text(product.name ?? ""),
+                                  subtitle: Text("\$${product.price}" ?? "0"),
+                                ),
+                              ),
                             ),
-                            title: Text(product.name ?? ""),
-                            subtitle: Text("\$${product.price}" ?? "0"),
                           ),
                         );
                       },
