@@ -5,6 +5,7 @@ import 'package:makeup_kit/app/network/api_service.dart';
 class HomeController extends GetxController {
   var isLoading = true.obs;
   List<ResponseProduct>? list = [];
+  ResponseProduct? selectedProduct;
 
   @override
   void onInit() {

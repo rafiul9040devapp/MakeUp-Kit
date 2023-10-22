@@ -17,7 +17,6 @@ class ApiService{
       final uri = Uri.parse(url);
       http.Response response = await client.get(uri);
 
-
       if(response.statusCode ==200){
         var jsonString = json.decode(response.body);
         List<ResponseProduct> listProduct = [];

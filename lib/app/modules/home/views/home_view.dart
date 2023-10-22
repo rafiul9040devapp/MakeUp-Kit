@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:makeup_kit/app/routes/app_pages.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -29,13 +30,25 @@ class HomeView extends GetView<HomeController> {
                       itemCount: controller.list?.length ?? 0,
                       itemBuilder: (context, index) {
                         final product = controller.list![index];
-                        return ListTile(
-                          leading: ClipRRect(
-                            borderRadius: BorderRadius.circular(100),
-                            child: Image.network(product.imageLink ?? ''),
+                        return GestureDetector(
+                          onTap: () {
+                            controller.selectedProduct = product;
+                            Get.toNamed(
+                              Routes.DETAILS,
+                              arguments: {
+                                'data': product,
+                              },
+                            );
+                            // Get.put(product);
+                          },
+                          child: ListTile(
+                            leading: ClipRRect(
+                              borderRadius: BorderRadius.circular(100),
+                              child: Image.network(product.imageLink ?? ''),
+                            ),
+                            title: Text(product.name ?? ""),
+                            subtitle: Text("\$${product.price}" ?? "0"),
                           ),
-                          title: Text(product.name ?? ""),
-                          subtitle: Text(product.price ?? "0"),
                         );
                       },
                     ),
