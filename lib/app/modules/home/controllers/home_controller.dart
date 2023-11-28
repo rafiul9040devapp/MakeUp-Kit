@@ -14,15 +14,7 @@ class HomeController extends GetxController {
     getData();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
 
-  @override
-  void onClose() {
-    super.onClose();
-  }
 
   Future<void> getData() async {
     print("getDATA called");

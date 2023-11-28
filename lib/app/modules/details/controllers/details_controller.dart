@@ -23,15 +23,7 @@ class DetailsController extends GetxController {
     // getProductDetails();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
 
-  @override
-  void onClose() {
-    super.onClose();
-  }
 
 // Future<void> getProductDetails() async {
 //   product = Get.find();
